@@ -56,7 +56,7 @@ const path = require('path');
 const readPkgUp = require('read-pkg-up');
 const parentModule = require('parent-module');
 
-console.log(readPkgUp.sync({cwd: path.dirname(parentModule)}).pkg);
+console.log(readPkgUp.sync({cwd: path.dirname(parentModule())}).pkg);
 //=> {name: 'chalk', version: '1.0.0', ...}
 ```
 
