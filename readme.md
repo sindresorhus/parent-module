@@ -35,7 +35,7 @@ bar();
 
 ### parentModule([filepath])
 
-By default it will return the path of the immediate parent.
+By default, it will return the path of the immediate parent.
 
 #### filepath
 
@@ -63,4 +63,4 @@ console.log(readPkgUp.sync({cwd: path.dirname(parentModule())}).pkg);
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

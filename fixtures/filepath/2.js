@@ -1,4 +1,4 @@
 'use strict';
-module.exports = function () {
+module.exports = () => {
 	require('./3')(__filename);
 };

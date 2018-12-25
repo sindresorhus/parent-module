@@ -1,6 +1,6 @@
 'use strict';
-var parentModule = require('../../');
+const parentModule = require('../..');
 
-module.exports = function () {
+module.exports = () => {
 	console.log(parentModule());
 };
