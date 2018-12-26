@@ -8,7 +8,7 @@ Node.js exposes `module.parent`, but it only gives you the first cached parent, 
 ## Install
 
 ```
-$ npm install --save parent-module
+$ npm install parent-module
 ```
 
 
