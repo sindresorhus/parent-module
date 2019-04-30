@@ -1,6 +1,6 @@
 {
 	"name": "parent-module",
-	"version": "1.0.1",
+	"version": "2.0.0",
 	"description": "Get the path of the parent module",
 	"license": "MIT",
 	"repository": "sindresorhus/parent-module",
