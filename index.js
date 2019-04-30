@@ -1,37 +1,37 @@
 'use strict';
 const callsites = require('callsites');
 
-module.exports = filepath => {
+module.exports = filePath => {
 	const stacks = callsites();
 
-	if (!filepath) {
+	if (!filePath) {
 		return stacks[2].getFileName();
 	}
 
-	let seenVal = false;
+	let seenValue = false;
 
 	// Skip the first stack as it's this function
 	stacks.shift();
 
 	for (const stack of stacks) {
-		const parentFilepath = stack.getFileName();
+		const parentFilePath = stack.getFileName();
 
-		if (typeof parentFilepath !== 'string') {
+		if (typeof parentFilePath !== 'string') {
 			continue;
 		}
 
-		if (parentFilepath === filepath) {
-			seenVal = true;
+		if (parentFilePath === filePath) {
+			seenValue = true;
 			continue;
 		}
 
 		// Skip native modules
-		if (parentFilepath === 'module.js') {
+		if (parentFilePath === 'module.js') {
 			continue;
 		}
 
-		if (seenVal && parentFilepath !== filepath) {
-			return parentFilepath;
+		if (seenValue && parentFilePath !== filePath) {
+			return parentFilePath;
 		}
 	}
 };
