@@ -34,16 +34,16 @@ bar();
 
 ## API
 
-### parentModule([filepath])
+### parentModule([filePath])
 
 By default, it will return the path of the immediate parent.
 
-#### filepath
+#### filePath
 
 Type: `string`<br>
 Default: [`__filename`](https://nodejs.org/api/globals.html#globals_filename)
 
-Filepath of the module of which to get the parent path.
+File path of the module of which to get the parent path.
 
 Useful if you want it to work [multiple module levels down](https://github.com/sindresorhus/parent-module/tree/master/fixtures/filepath).
 
