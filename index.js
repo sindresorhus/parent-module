@@ -8,7 +8,7 @@ module.exports = filePath => {
 		return stacks[2].getFileName();
 	}
 
-	let seenValue = false;
+	let hasSeenValue = false;
 
 	// Skip the first stack as it's this function
 	stacks.shift();
@@ -21,7 +21,7 @@ module.exports = filePath => {
 		}
 
 		if (parentFilePath === filePath) {
-			seenValue = true;
+			hasSeenValue = true;
 			continue;
 		}
 
@@ -30,7 +30,7 @@ module.exports = filePath => {
 			continue;
 		}
 
-		if (seenValue && parentFilePath !== filePath) {
+		if (hasSeenValue && parentFilePath !== filePath) {
 			return parentFilePath;
 		}
 	}
