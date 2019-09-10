@@ -34,7 +34,7 @@ bar();
 
 ## API
 
-### parentModule([filePath])
+### parentModule(filePath?)
 
 By default, it will return the path of the immediate parent.
 
@@ -62,6 +62,14 @@ console.log(readPkgUp.sync({cwd: path.dirname(parentModule())}).pkg);
 ```
 
 
-## License
+---
 
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+<div align="center">
+	<b>
+		<a href="https://tidelift.com/subscription/pkg/npm-parent-module?utm_source=npm-parent-module&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
+	</b>
+	<br>
+	<sub>
+		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
+	</sub>
+</div>
