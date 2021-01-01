@@ -1,4 +1,4 @@
-# parent-module [![Build Status](https://travis-ci.org/sindresorhus/parent-module.svg?branch=master)](https://travis-ci.org/sindresorhus/parent-module)
+# parent-module
 
 > Get the path of the parent module
 
