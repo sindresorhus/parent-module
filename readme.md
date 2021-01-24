@@ -4,13 +4,11 @@
 
 Node.js exposes `module.parent`, but it only gives you the first cached parent, which is not necessarily the actual parent.
 
-
 ## Install
 
 ```
 $ npm install parent-module
 ```
-
 
 ## Usage
 
@@ -31,7 +29,6 @@ const bar = require('./bar');
 bar();
 ```
 
-
 ## API
 
 ### parentModule(filePath?)
@@ -40,13 +37,12 @@ By default, it will return the path of the immediate parent.
 
 #### filePath
 
-Type: `string`<br>
+Type: `string`\
 Default: [`__filename`](https://nodejs.org/api/globals.html#globals_filename)
 
 File path of the module of which to get the parent path.
 
-Useful if you want it to work [multiple module levels down](https://github.com/sindresorhus/parent-module/tree/master/fixtures/filepath).
-
+Useful if you want it to work [multiple module levels down](fixtures/filepath).
 
 ## Tip
 
@@ -60,7 +56,6 @@ const parentModule = require('parent-module');
 console.log(readPkgUp.sync({cwd: path.dirname(parentModule())}).pkg);
 //=> {name: 'chalk', version: '1.0.0', …}
 ```
-
 
 ---
 
