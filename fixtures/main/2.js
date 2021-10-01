@@ -1,6 +1,5 @@
-'use strict';
-const parentModule = require('../..');
+import parentModule from '../../index.js';
 
-module.exports = () => {
+export default function two() {
 	console.log(parentModule());
-};
+}

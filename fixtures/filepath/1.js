@@ -1,2 +1,3 @@
-'use strict';
-require('./2')();
+import x from './2.js';
+
+x();

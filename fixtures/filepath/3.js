@@ -1,6 +1,5 @@
-'use strict';
-const parentModule = require('../..');
+import parentModule from '../../index.js';
 
-module.exports = filepath => {
+export default function three(filepath) {
 	console.log(parentModule(filepath));
-};
+}

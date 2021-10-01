@@ -9,8 +9,9 @@
 		"email": "sindresorhus@gmail.com",
 		"url": "sindresorhus.com"
 	},
+	"type": "module",
 	"engines": {
-		"node": ">=8"
+		"node": ">=12"
 	},
 	"scripts": {
 		"test": "xo && ava && tsd"
@@ -36,12 +37,12 @@
 		"file"
 	],
 	"dependencies": {
-		"callsites": "^3.1.0"
+		"callsites": "^4.0.0"
 	},
 	"devDependencies": {
-		"ava": "^1.4.1",
-		"execa": "^1.0.0",
-		"tsd": "^0.7.2",
-		"xo": "^0.24.0"
+		"ava": "^3.15.0",
+		"execa": "^5.1.1",
+		"tsd": "^0.17.0",
+		"xo": "^0.44.0"
 	}
 }
