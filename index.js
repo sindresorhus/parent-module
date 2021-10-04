@@ -1,7 +1,6 @@
-'use strict';
-const callsites = require('callsites');
+import callsites from 'callsites';
 
-module.exports = filePath => {
+export default function parentModule(filePath) {
 	const stacks = callsites();
 
 	if (!filePath) {
@@ -34,4 +33,4 @@ module.exports = filePath => {
 			return parentFilePath;
 		}
 	}
-};
+}

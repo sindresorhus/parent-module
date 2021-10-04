@@ -14,9 +14,9 @@ $ npm install parent-module
 
 ```js
 // bar.js
-const parentModule = require('parent-module');
+import parentModule from 'parent-module';
 
-module.exports = () => {
+export default function bar() {
 	console.log(parentModule());
 	//=> '/Users/sindresorhus/dev/unicorn/foo.js'
 };
@@ -24,7 +24,7 @@ module.exports = () => {
 
 ```js
 // foo.js
-const bar = require('./bar');
+import bar from './bar.js';
 
 bar();
 ```
@@ -49,9 +49,9 @@ Useful if you want it to work [multiple module levels down](fixtures/filepath).
 Combine it with [`read-pkg-up`](https://github.com/sindresorhus/read-pkg-up) to read the package.json of the parent module.
 
 ```js
-const path = require('path');
-const readPkgUp = require('read-pkg-up');
-const parentModule = require('parent-module');
+import path from 'node:path';
+import readPkgUp from 'read-pkg-up';
+import parentModule from 'parent-module';
 
 console.log(readPkgUp.sync({cwd: path.dirname(parentModule())}).pkg);
 //=> {name: 'chalk', version: '1.0.0', …}
