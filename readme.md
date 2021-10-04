@@ -6,8 +6,8 @@ Node.js exposes `module.parent`, but it only gives you the first cached parent, 
 
 ## Install
 
-```
-$ npm install parent-module
+```sh
+npm install parent-module
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ By default, it will return the path of the immediate parent.
 Type: `string`\
 Default: [`__filename`](https://nodejs.org/api/globals.html#globals_filename)
 
-File path of the module of which to get the parent path.
+The file path of the module of which to get the parent path.
 
 Useful if you want it to work [multiple module levels down](fixtures/filepath).
 
@@ -50,10 +50,10 @@ Combine it with [`read-pkg-up`](https://github.com/sindresorhus/read-pkg-up) to 
 
 ```js
 import path from 'node:path';
-import readPkgUp from 'read-pkg-up';
+import {readPackageUpSync} from 'read-pkg-up';
 import parentModule from 'parent-module';
 
-console.log(readPkgUp.sync({cwd: path.dirname(parentModule())}).pkg);
+console.log(readPackageUpSync({cwd: path.dirname(parentModule())}).pkg);
 //=> {name: 'chalk', version: '1.0.0', …}
 ```
 

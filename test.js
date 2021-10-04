@@ -7,7 +7,7 @@ test('main', async t => {
 	t.is(path.basename(stdout), '1.js');
 });
 
-test('filepath option', async t => {
+test('filePath option', async t => {
 	const {stdout} = await execa('node', ['./fixtures/filepath/1.js']);
 	t.is(path.basename(stdout), '1.js');
 });
