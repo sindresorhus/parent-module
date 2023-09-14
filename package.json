@@ -39,7 +39,7 @@
 		"file"
 	],
 	"dependencies": {
-		"callsites": "^4.0.0"
+		"callsites": "^4.1.0"
 	},
 	"devDependencies": {
 		"ava": "^3.15.0",
