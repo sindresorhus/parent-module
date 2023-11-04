@@ -46,25 +46,13 @@ Useful if you want it to work [multiple module levels down](fixtures/filepath).
 
 ## Tip
 
-Combine it with [`read-pkg-up`](https://github.com/sindresorhus/read-pkg-up) to read the package.json of the parent module.
+Combine it with [`read-package-up`](https://github.com/sindresorhus/read-package-up) to read the package.json of the parent module.
 
 ```js
 import path from 'node:path';
-import {readPackageUpSync} from 'read-pkg-up';
+import {readPackageUpSync} from 'read-package-up';
 import parentModule from 'parent-module';
 
 console.log(readPackageUpSync({cwd: path.dirname(parentModule())}).pkg);
 //=> {name: 'chalk', version: '1.0.0', …}
 ```
-
----
-
-<div align="center">
-	<b>
-		<a href="https://tidelift.com/subscription/pkg/npm-parent-module?utm_source=npm-parent-module&utm_medium=referral&utm_campaign=readme">Get professional support for this package with a Tidelift subscription</a>
-	</b>
-	<br>
-	<sub>
-		Tidelift helps make open source sustainable for maintainers while giving companies<br>assurances about security, maintenance, and licensing for their dependencies.
-	</sub>
-</div>
