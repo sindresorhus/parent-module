@@ -1,23 +1,23 @@
 /**
 Get the path of the parent module.
 
-@param filePath - The file path of the module of which to get the parent path.
+@param filePath - The file path of the module for which to get the parent path. Default: `import.meta.filename`
 
-Useful if you want it to work [multiple module levels down](https://github.com/sindresorhus/parent-module/tree/main/fixtures/filepath).
+Useful for getting the parent of a specific module when the call traverses [multiple module levels](https://github.com/sindresorhus/parent-module/tree/main/fixtures/filepath).
 
-Default: [`__filename`](https://nodejs.org/api/globals.html#globals_filename)
+@returns The file path of the parent module, or `undefined` if there is no parent module (for example, when called from the top-level of an entry module).
 
 @example
 ```
-// bar.ts
+// bar.js
 import parentModule from 'parent-module';
 
-export default () => {
+export default function bar() {
 	console.log(parentModule());
-	//=> '/Users/sindresorhus/dev/unicorn/foo.ts'
-};
+	//=> '/Users/sindresorhus/dev/unicorn/foo.js'
+}
 
-// foo.ts
+// foo.js
 import bar from './bar.js';
 
 bar();

@@ -2,7 +2,7 @@
 
 > Get the path of the parent module
 
-Node.js exposes `module.parent`, but it only gives you the first cached parent, which is not necessarily the actual parent.
+This module provides a reliable way to get the file path of the module that called your code, working correctly with both CommonJS and ESM modules.
 
 ## Install
 
@@ -19,7 +19,7 @@ import parentModule from 'parent-module';
 export default function bar() {
 	console.log(parentModule());
 	//=> '/Users/sindresorhus/dev/unicorn/foo.js'
-};
+}
 ```
 
 ```js
@@ -33,16 +33,18 @@ bar();
 
 ### parentModule(filePath?)
 
-By default, it will return the path of the immediate parent.
+Returns: `string | undefined`
+
+Returns the file path of the immediate parent module, or `undefined` if there is no parent module (for example, when called from the top-level of an entry module).
 
 #### filePath
 
 Type: `string`\
-Default: [`__filename`](https://nodejs.org/api/globals.html#globals_filename)
+Default: `import.meta.filename`
 
-The file path of the module of which to get the parent path.
+The file path of the module for which to get the parent path.
 
-Useful if you want it to work [multiple module levels down](fixtures/filepath).
+Useful for getting the parent of a specific module when the call traverses [multiple module levels](fixtures/filepath).
 
 ## Tip
 
@@ -53,6 +55,9 @@ import path from 'node:path';
 import {readPackageUpSync} from 'read-package-up';
 import parentModule from 'parent-module';
 
-console.log(readPackageUpSync({cwd: path.dirname(parentModule())}).pkg);
-//=> {name: 'chalk', version: '1.0.0', …}
+const parent = parentModule();
+if (parent) {
+	console.log(readPackageUpSync({cwd: path.dirname(parent)}).pkg);
+	//=> {name: 'chalk', version: '1.0.0', …}
+}
 ```

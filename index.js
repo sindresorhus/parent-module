@@ -1,21 +1,34 @@
 import callsites from 'callsites';
 
+function isValidFileName(fileName) {
+	return typeof fileName === 'string'
+		&& !fileName.startsWith('node:')
+		&& fileName !== 'module.js';
+}
+
 export default function parentModule(filePath) {
 	const stacks = callsites();
 
 	if (!filePath) {
-		return stacks[2].getFileName();
+		// Find the first non-internal parent module
+		for (const stack of stacks.slice(2)) {
+			const fileName = stack?.getFileName();
+
+			if (isValidFileName(fileName)) {
+				return fileName;
+			}
+		}
+
+		return;
 	}
 
 	let hasSeenValue = false;
 
-	// Skip the first stack as it's this function
-	stacks.shift();
+	// Start from index 1 to skip this function
+	for (const stack of stacks.slice(1)) {
+		const parentFilePath = stack?.getFileName();
 
-	for (const stack of stacks) {
-		const parentFilePath = stack.getFileName();
-
-		if (typeof parentFilePath !== 'string') {
+		if (!isValidFileName(parentFilePath)) {
 			continue;
 		}
 
@@ -24,12 +37,7 @@ export default function parentModule(filePath) {
 			continue;
 		}
 
-		// Skip native modules
-		if (parentFilePath === 'module.js') {
-			continue;
-		}
-
-		if (hasSeenValue && parentFilePath !== filePath) {
+		if (hasSeenValue) {
 			return parentFilePath;
 		}
 	}
